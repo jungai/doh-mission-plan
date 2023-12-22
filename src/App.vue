@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { cn } from "./lib/utils";
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import {
   Tabs,
   TabTrigger,
@@ -8,7 +8,7 @@ import {
   TabIndicator,
   TabContent,
 } from "@ark-ui/vue";
-import { ChevronLeft, ChevronRight, MapPin } from "lucide-vue-next";
+import { ChevronLeft, ChevronRight } from "lucide-vue-next";
 
 type Items = {
   data: {
@@ -240,6 +240,84 @@ const value = ref(items.data[0].date);
             <ChevronRight :size="16" class="text-grayPrimary-50" />
           </div>
         </div>
+        <TabContent
+          v-for="(item, idx) in items.data"
+          :value="item.date"
+          :key="idx"
+        >
+          <div class="flex flex-col gap-y-4">
+            <div
+              v-for="(mission, idx) in item.missions"
+              class="flex items-center gap-x-[28px] rounded-[10px] bg-graySecondary-900/90 px-4 py-3 relative"
+              :class="
+                mission.status === 'next'
+                  ? 'border-4 border-[rgba(0,112,174,0.2)] animate-pulse '
+                  : ''
+              "
+              :key="idx"
+            >
+              <div
+                v-if="mission.status !== 'waiting'"
+                class="absolute top-0 right-0 h-[40px] w-[100px] rounded-bl-xl py-2 flex justify-center"
+                :class="
+                  mission.status === 'next'
+                    ? 'text-[#5CC6E6] bg-[rgba(0,112,174,0.2)]'
+                    : 'bg-success-500/20 text-success-500'
+                "
+              >
+                {{ mission.status }}
+              </div>
+              <div class="flex flex-col">
+                <div
+                  class="flex items-center gap-x-1 text-grayPrimary-50 text-sm"
+                >
+                  <span class="font-extrabold">{{ mission.startTime }}</span>
+                  -
+                  <span>{{ mission.endTIme }}</span>
+                </div>
+              </div>
+
+              <img
+                src="/drone.png"
+                alt="drone"
+                class="w-[100px] aspect-square"
+              />
+
+              <div class="flex items-center divide-x-2 divide-grayPrimary-50">
+                <div class="flex flex-col px-4">
+                  <h2 class="text-gray-50 font-bold">{{ mission.flightId }}</h2>
+                  <span class="text-sm text-grayPrimary-500">{{
+                    mission.missioId.split("-")[1]
+                  }}</span>
+                  <div class="flex items-center gap-x-2 text-grayPrimary-500">
+                    <MapPin :size="16" class="text-grayPrimary-400" />
+                    <span clas="text-sm">{{ mission.station }}</span>
+                  </div>
+                </div>
+
+                <div class="flex flex-col px-4">
+                  <div class="text-grayPrimary-50">
+                    <span>ระยะทาง&nbsp;</span>
+                    <span class="font-bold underline text-primary-300">{{
+                      mission.totalDistance
+                    }}</span>
+                    <span>&nbsp;km</span>
+                  </div>
+                  <div class="text-grayPrimary-50">
+                    <span>ระยะเวลา&nbsp;</span>
+                    <span class="font-bold underline text-primary-300">{{
+                      mission.totalTime
+                    }}</span>
+                    <span>&nbsp;นาที</span>
+                  </div>
+                  <div class="flex items-center gap-x-2 text-grayPrimary-500">
+                    <span clas="text-xs">*{{ mission.memo }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </TabContent>
       </Tabs>
     </div>
   </div>

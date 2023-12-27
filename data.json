@@ -56,7 +56,7 @@
           "flightId": "DOH-FL-23005",
           "memo": "บินสำรวจ จุดเปิดเลยสวน ถ.พหลโยธิน ช่วง กม.54+550 ถึง กม.58+250",
           "totalTime": 20,
-          "status": "done"
+          "status": "next"
         },
         {
           "startTime": "14.00PM",
@@ -66,8 +66,7 @@
           "station": "ทล.1 71+500",
           "flightId": "DOH-FL-23006",
           "memo": "บินสำรวจ จุดเปิดเลยสวน ถ.พหลโยธิน กม. 71+200 ถึง กม. 77+000",
-          "totalTime": 28,
-          "status": "done"
+          "totalTime": 28
         },
         {
           "startTime": "15:00PM",
@@ -77,8 +76,7 @@
           "station": "ทล.1 55+700",
           "flightId": "DOH-FL-23007",
           "memo": "บินสำรวจ จุดเปิดเลยสวน ถ.พหลโยธิน ช่วง กม.54+550 ถึง กม.58+250",
-          "totalTime": 20,
-          "status": "done"
+          "totalTime": 20
         },
         {
           "startTime": "16:00PM",
@@ -88,8 +86,7 @@
           "station": "ทล.1 71+500",
           "flightId": "DOH-FL-23008",
           "memo": "บินสำรวจ จุดเปิดเลยสวน ถ.พหลโยธิน กม. 71+200 ถึง กม. 77+000",
-          "totalTime": 28,
-          "status": "done"
+          "totalTime": 28
         },
         {
           "startTime": "17:00PM",
@@ -99,8 +96,7 @@
           "station": "ทล.1 55+700",
           "flightId": "DOH-FL-23009",
           "memo": "บินสำรวจ จุดเปิดเลยสวน ถ.พหลโยธิน ช่วง กม.54+550 ถึง กม.58+250",
-          "totalTime": 20,
-          "status": "done"
+          "totalTime": 20
         },
         {
           "startTime": "18:00PM",
@@ -110,8 +106,7 @@
           "station": "ทล.1 71+500",
           "flightId": "DOH-FL-23010",
           "memo": "บินสำรวจ จุดเปิดเลยสวน ถ.พหลโยธิน กม. 71+200 ถึง กม. 77+000",
-          "totalTime": 28,
-          "status": "done"
+          "totalTime": 28
         }
       ]
     }

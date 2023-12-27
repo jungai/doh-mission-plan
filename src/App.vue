@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { cn } from "./lib/utils";
-import { ref, onMounted, computed } from "vue";
+import { cn, getCurrentFormatted } from "./lib/utils";
+import { ref, onMounted } from "vue";
 import axios from "axios";
 import {
   Tabs,
@@ -29,8 +29,7 @@ type Items = {
 };
 
 const items = ref<Items>({ data: [] });
-
-const value = computed(() => items.value?.data[0]?.date ?? "");
+const currentDate = ref(getCurrentFormatted());
 
 onMounted(async () => {
   const data = await axios.get<Items>(
@@ -45,7 +44,7 @@ onMounted(async () => {
 <template>
   <div class="bg-graySecondary-700 h-screen overflow pt-[100px]">
     <div class="max-w-5xl mx-auto h-full">
-      <Tabs class="flex w-full flex-col gap-y-4 h-full" v-model="value">
+      <Tabs class="flex w-full flex-col gap-y-4 h-full" v-model="currentDate">
         <div
           class="flex items-center gap-x-4 bg-graySecondary-900/90 shadow-[0px_3px_14px_0px_rgba(0,0,0,0.26)] rounded-[10px] px-8"
         >
@@ -58,26 +57,31 @@ onMounted(async () => {
               :key="idx"
               :value="item.date"
               :class="`${
-                value === item.date ? 'bg-primary-500 rounded-[10px]' : ''
+                currentDate === item.date ? 'bg-primary-500 rounded-[10px]' : ''
               }`"
             >
               <div class="flex flex-col py-2 px-3">
                 <h2
                   :class="
                     cn(
-                      value === item.date
+                      currentDate === item.date
                         ? 'text-base font-bold text-grayPrimary-50'
                         : 'text-base font-normal text-grayPrimary-400',
                     )
                   "
                 >
-                  {{ item.date }}
+                  {{
+                    new Date(item.date).toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "numeric",
+                    })
+                  }}
                 </h2>
                 <span
                   :class="
                     cn(
                       'text-xs',
-                      value === item.date
+                      currentDate === item.date
                         ? 'text-grayPrimary-50'
                         : 'text-grayPrimary-400',
                     )
@@ -107,6 +111,7 @@ onMounted(async () => {
                   ? 'border-4 border-[rgba(0,112,174,0.2)] animate-pulse '
                   : ''
               "
+              :id="idx + 1 + mission.status"
               :key="idx"
             >
               <div

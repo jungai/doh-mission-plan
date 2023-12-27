@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { cn, getCurrentFormatted } from "./lib/utils";
-import { ref, onMounted, Ref, watchEffect } from "vue";
+import { ref, watch } from "vue";
 import axios from "axios";
 import {
   Tabs,
@@ -10,6 +10,7 @@ import {
   TabContent,
 } from "@ark-ui/vue";
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-vue-next";
+import { useQuery } from "@tanstack/vue-query";
 
 type Items = {
   data: {
@@ -28,42 +29,22 @@ type Items = {
   }[];
 };
 
-const itemRefs: Ref<Array<any | undefined>> = ref([]);
 const items = ref<Items>({ data: [] });
 const currentDate = ref(getCurrentFormatted());
 
-// Function to scroll into the item
-const scrollToItem = (index: number) => {
-  const element = itemRefs.value[index];
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-};
-
-watchEffect(() => {
-  const target = items.value.data.findIndex(
-    (item) => item.date === currentDate.value,
-  );
-
-  if (target < 0) return;
-
-  console.log("target", target);
-  const missionIdx = items.value.data[target].missions.findIndex(
-    (mission) => mission.status === "next",
-  );
-
-  if (!missionIdx || missionIdx < 0) return;
-
-  scrollToItem(missionIdx);
+const missions = useQuery({
+  queryKey: ["missions"],
+  queryFn: () =>
+    axios.get<Items>(
+      "https://raw.githubusercontent.com/jungai/doh-mission-plan/master/data.json",
+    ),
+  refetchInterval: 1000 * 60 * 5,
 });
 
-onMounted(async () => {
-  const data = await axios.get<Items>(
-    "https://raw.githubusercontent.com/jungai/doh-mission-plan/master/data.json",
-  );
-  console.log(data);
+watch(missions.isSuccess, () => {
+  const newData = { ...(missions.data?.value?.data ?? { data: [] }) };
 
-  items.value = data.data;
+  items.value = newData;
 });
 </script>
 
@@ -136,6 +117,8 @@ onMounted(async () => {
               :class="
                 mission.status === 'next'
                   ? 'border-4 border-[rgba(0,112,174,0.2)] animate-pulse '
+                  : mission.status === 'done'
+                  ? 'hidden'
                   : ''
               "
               :id="idx + 1 + mission.status"

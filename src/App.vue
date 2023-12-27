@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { cn, getCurrentFormatted } from "./lib/utils";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, Ref, watchEffect } from "vue";
 import axios from "axios";
 import {
   Tabs,
@@ -28,8 +28,34 @@ type Items = {
   }[];
 };
 
+const itemRefs: Ref<Array<any | undefined>> = ref([]);
 const items = ref<Items>({ data: [] });
 const currentDate = ref(getCurrentFormatted());
+
+// Function to scroll into the item
+const scrollToItem = (index: number) => {
+  const element = itemRefs.value[index];
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
+
+watchEffect(() => {
+  const target = items.value.data.findIndex(
+    (item) => item.date === currentDate.value,
+  );
+
+  if (target < 0) return;
+
+  console.log("target", target);
+  const missionIdx = items.value.data[target].missions.findIndex(
+    (mission) => mission.status === "next",
+  );
+
+  if (!missionIdx || missionIdx < 0) return;
+
+  scrollToItem(missionIdx);
+});
 
 onMounted(async () => {
   const data = await axios.get<Items>(
@@ -106,6 +132,7 @@ onMounted(async () => {
             <div
               v-for="(mission, idx) in item.missions"
               class="flex items-center gap-x-[28px] rounded-[10px] bg-graySecondary-900/90 px-4 py-3 relative w-[calc(100%-8px)]"
+              ref="itemRefs"
               :class="
                 mission.status === 'next'
                   ? 'border-4 border-[rgba(0,112,174,0.2)] animate-pulse '
@@ -129,7 +156,7 @@ onMounted(async () => {
                 <div
                   class="flex items-center gap-x-1 text-grayPrimary-50 text-sm"
                 >
-                  <span class="font-extrabold">{{ mission.startTime }}</span>
+                  <span>{{ mission.startTime }}</span>
                   -
                   <span>{{ mission.endTIme }}</span>
                 </div>

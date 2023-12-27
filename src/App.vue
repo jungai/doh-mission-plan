@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { cn } from "./lib/utils";
 import { ref, onMounted, computed } from "vue";
+import axios from "axios";
 import {
   Tabs,
   TabTrigger,
@@ -32,18 +33,19 @@ const items = ref<Items>({ data: [] });
 const value = computed(() => items.value?.data[0]?.date ?? "");
 
 onMounted(async () => {
-  const raw = await fetch(
+  const data = await axios.get<Items>(
     "https://raw.githubusercontent.com/jungai/doh-mission-plan/master/data.json",
   );
-  const data = await raw.json();
-  items.value = data;
+  console.log(data);
+
+  items.value = data.data;
 });
 </script>
 
 <template>
   <div class="bg-graySecondary-700 h-screen overflow pt-[100px]">
-    <div class="max-w-5xl mx-auto">
-      <Tabs class="flex w-full flex-col gap-y-4" v-model="value">
+    <div class="max-w-5xl mx-auto h-full">
+      <Tabs class="flex w-full flex-col gap-y-4 h-full" v-model="value">
         <div
           class="flex items-center gap-x-4 bg-graySecondary-900/90 shadow-[0px_3px_14px_0px_rgba(0,0,0,0.26)] rounded-[10px] px-8"
         >
@@ -94,11 +96,12 @@ onMounted(async () => {
           v-for="(item, idx) in items.data"
           :value="item.date"
           :key="idx"
+          class="flex-1 overflow-y-auto"
         >
           <div class="flex flex-col gap-y-4">
             <div
               v-for="(mission, idx) in item.missions"
-              class="flex items-center gap-x-[28px] rounded-[10px] bg-graySecondary-900/90 px-4 py-3 relative"
+              class="flex items-center gap-x-[28px] rounded-[10px] bg-graySecondary-900/90 px-4 py-3 relative w-[calc(100%-8px)]"
               :class="
                 mission.status === 'next'
                   ? 'border-4 border-[rgba(0,112,174,0.2)] animate-pulse '

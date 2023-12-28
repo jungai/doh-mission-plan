@@ -171,7 +171,7 @@
           "flightId": "DOH-FL-23005",
           "memo": "บินสำรวจทาง ถ.พหลโยธิน ขาเข้า ระหว่าง กม.55+700 ถึง กม.48+750",
           "totalTime": 25,
-          "status": "next"
+          "status": "done"
         },
         {
           "startTime": "14:00PM",
@@ -182,7 +182,7 @@
           "flightId": "DOH-FL-23006",
           "memo": "บินสำรวจ ถ.พหลโยธิน ช่วง กม.71+500 ถึง กม.64+600",
           "totalTime": 27,
-          "status": "waiting"
+          "status": "next"
         },
                 {
           "startTime": "15:00PM",
@@ -190,7 +190,7 @@
           "totalDistance": 14,
           "missioId": "FR-S55700-48750",
           "station": "ทล.1 55+700",
-          "flightId": "DOH-FL-23005",
+          "flightId": "DOH-FL-23007",
           "memo": "บินสำรวจทาง ถ.พหลโยธิน ขาเข้า ระหว่าง กม.55+700 ถึง กม.48+750",
           "totalTime": 25,
           "status": "waiting"
@@ -201,7 +201,7 @@
           "totalDistance": 15.34,
           "missioId": "FR-S71500-64600",
           "station": "ทล.1 71+500",
-          "flightId": "DOH-FL-23006",
+          "flightId": "DOH-FL-23008",
           "memo": "บินสำรวจ ถ.พหลโยธิน ช่วง กม.71+500 ถึง กม.64+600",
           "totalTime": 27,
           "status": "waiting"
@@ -212,7 +212,7 @@
           "totalDistance": 7.43,
           "missioId": "FR-S55700-3RVL",
           "station": "ทล.1 55+700",
-          "flightId": "DOH-FL-23007",
+          "flightId": "DOH-FL-23009",
           "memo": "บินสำรวจ จุดเปิดเลยสวน ถ.พหลโยธิน ช่วง กม.54+550 ถึง กม.58+250",
           "totalTime": 20,
           "status": "waiting"
@@ -223,7 +223,7 @@
           "totalDistance": 12.82,
           "missioId": "FR-S55700-2RVL",
           "station": "ทล.1 71+500",
-          "flightId": "DOH-FL-23008",
+          "flightId": "DOH-FL-23010",
           "memo": "บินสำรวจ จุดเปิดเลยสวน ถ.พหลโยธิน กม. 71+200 ถึง กม. 77+000",
           "totalTime": 28,
           "status": "waiting"

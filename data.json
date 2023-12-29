@@ -308,7 +308,7 @@
           "flightId": "DOH-FL-23017",
           "memo": "บินสํารวจ ถ.พหลโยธิน ช่วง กม.55+700 ถึง กม.71+500",
           "totalTime": 29,
-          "status": "next"
+          "status": "done"
         },
         {
           "startTime": "16:00PM",
@@ -319,7 +319,7 @@
           "flightId": "DOH-FL-23018",
           "memo": "บินสํารวจ ถ.พหลโยธิน ช่วง กม.71+500 ถึง กม.55+700",
           "totalTime": 29,
-          "status": "waiting"
+          "status": "next"
         },
                 {
           "startTime": "17:00PM",

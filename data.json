@@ -245,8 +245,8 @@
           "status": "next"
         },
         {
-          "startTime": "10:30AM",
-          "endTIme": "10:57AM",
+          "startTime": "10:00AM",
+          "endTIme": "10:27AM",
           "totalDistance": 15.34,
           "missioId": "FR-S71500-64600",
           "station": "ทล.1 71+500",
@@ -256,8 +256,8 @@
           "status": "waiting"
         },
         {
-          "startTime": "12:00PM",
-          "endTIme": "12:29PM",
+          "startTime": "11:00PM",
+          "endTIme": "11:29PM",
           "totalDistance": 16.63,
           "missioId": "SR-S55700-S71500",
           "station": "ทล.1 55+700",
@@ -267,8 +267,8 @@
           "status": "waiting"
         },
         {
-          "startTime": "13:30PM",
-          "endTIme": "13:59PM",
+          "startTime": "12:00PM",
+          "endTIme": "12:29PM",
           "totalDistance": 16.62,
           "missioId": "SR-S71500-S55700",
           "station": "ทล.1 71+500",
@@ -278,8 +278,8 @@
           "status": "waiting"
         },
         {
-          "startTime": "15:00PM",
-          "endTIme": "15:25PM",
+          "startTime": "13:00PM",
+          "endTIme": "13:25PM",
           "totalDistance": 14,
           "missioId": "FR-S55700-48750",
           "station": "ทล.1 55+700",
@@ -289,8 +289,8 @@
           "status": "waiting"
         },
         {
-          "startTime": "16:30PM",
-          "endTIme": "16:57PM",
+          "startTime": "14:00PM",
+          "endTIme": "14:27PM",
           "totalDistance": 15.34,
           "missioId": "FR-S71500-64600",
           "station": "ทล.1 71+500",
@@ -300,8 +300,8 @@
           "status": "waiting"
         },
         {
-          "startTime": "18:00PM",
-          "endTIme": "18:29PM",
+          "startTime": "15:00PM",
+          "endTIme": "15:29PM",
           "totalDistance": 16.63,
           "missioId": "SR-S55700-S71500",
           "station": "ทล.1 55+700",
@@ -311,8 +311,8 @@
           "status": "waiting"
         },
         {
-          "startTime": "19:30PM",
-          "endTIme": "19:59PM",
+          "startTime": "16:00PM",
+          "endTIme": "16:29PM",
           "totalDistance": 16.62,
           "missioId": "SR-S71500-S55700",
           "station": "ทล.1 71+500",

@@ -242,7 +242,7 @@
           "flightId": "DOH-FL-23009",
           "memo": "บินสำรวจทาง ถ.พหโยธิน ขาเข้า ระหว่าง กม.55+700 ถึง กม.48+750",
           "totalTime": 25,
-          "status": "next"
+          "status": "done"
         },
         {
           "startTime": "10:00AM",
@@ -253,7 +253,7 @@
           "flightId": "DOH-FL-23010",
           "memo": "บินสํารวจ ถ.พหลโยธิน ช่วง กม.71+500 ถึง กม. 64+600",
           "totalTime": 27,
-          "status": "waiting"
+          "status": "next"
         },
         {
           "startTime": "11:00PM",

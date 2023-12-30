@@ -38,7 +38,7 @@ const missions = useQuery({
     axios.get<Items>(
       "https://raw.githubusercontent.com/jungai/doh-mission-plan/master/data.json",
     ),
-  refetchInterval: 1000 * 60 * 5,
+  refetchInterval: 1000 * 60 * 1,
 });
 
 watch(missions.isSuccess, () => {

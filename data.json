@@ -357,7 +357,7 @@
           "flightId": "DOH-FL-23021",
           "memo": "บินสำรวจ ถ.พหลโยธิน ทล. 1 ช่วง กม.71+200 ถึง กม.77+000",
           "totalTime": 27,
-          "status": "done"
+          "status": "next"
         },
         {
           "startTime": "11:00AM",
@@ -368,7 +368,7 @@
           "flightId": "DOH-FL-23022",
           "memo": "บินสำรวจ ถ.พหลโยธิน ทล. 1 ช่วง กม.71+200 ถึง กม.77+000",
           "totalTime": 27,
-          "status": "done"
+          "status": "waiting"
         },        
         {
           "startTime": "13:00AM",
@@ -379,7 +379,7 @@
           "flightId": "DOH-FL-23023",
           "memo": "บินสำรวจ ถ.พหลโยธิน ทล. 1 ช่วง กม.71+200 ถึง กม.77+000",
           "totalTime": 27,
-          "status": "done"
+          "status": "waiting"
         },        
         {
           "startTime": "15:00AM",
@@ -390,7 +390,7 @@
           "flightId": "DOH-FL-23024",
           "memo": "บินสำรวจ ถ.พหลโยธิน ทล. 1 ช่วง กม.71+200 ถึง กม.77+000",
           "totalTime": 27,
-          "status": "done"
+          "status": "waiting"
         },        
         {
           "startTime": "17:00AM",
@@ -401,7 +401,7 @@
           "flightId": "DOH-FL-23025",
           "memo": "บินสำรวจ ถ.พหลโยธิน ทล. 1 ช่วง กม.71+200 ถึง กม.77+000",
           "totalTime": 27,
-          "status": "done"
+          "status": "waiting"
         }  
       ]
     },
